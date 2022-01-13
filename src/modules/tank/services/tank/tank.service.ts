@@ -54,10 +54,12 @@ export class TankService {
     return this.tankRepository.delete(id);
   }
 
-  getTankByName(name: string): Promise<Tank[]> {
-    return this.tankRepository
+  async getTankByName(name: string): Promise<Tank[]> {
+    const tanks = await this.tankRepository
       .createQueryBuilder('tank')
-      .where('tank.name LIKE :name', { name: `%${name}%` })
+      .where('LOWER(tank.name) like LOWER(:name)', { name: `%${name}%` })
       .getMany();
+
+    return tanks;
   }
 }
