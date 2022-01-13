@@ -13,9 +13,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: process.env.DB_NAME,
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       synchronize: process.env.NODE_ENV !== 'production',
-      extra: {
-        ssl: true,
-      },
+      ssl:
+        process.env.NODE_ENV === 'production'
+          ? { rejectUnauthorized: false }
+          : false,
     }),
   ],
 })
