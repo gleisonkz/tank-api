@@ -1,0 +1,40 @@
+GET http://localhost:3000/api/v1/tank
+
+###
+
+GET http://localhost:3000/api/v1/tank/1
+
+###
+
+GET http://localhost:3000/api/v1/tank/name/e
+
+###
+
+POST http://localhost:3000/api/v1/tank
+content-type: application/json
+
+{
+    "name": "test",
+    "type": 2
+}
+
+###
+
+PUT http://localhost:3000/api/v1/tank/1
+content-type: application/json
+
+{
+    "name": "NEW NAME"  ,
+    "type": 1
+}
+
+###
+
+PUT http://localhost:3000/api/v1/tank/1
+content-type: application/json
+
+{
+    "name": "old name"  ,
+    "type": 1
+}
+
