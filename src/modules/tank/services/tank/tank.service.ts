@@ -30,7 +30,7 @@ export class TankService {
     newTank.name = tank.name;
     newTank.type = tank.type;
 
-    return this.tankRepository.createOne(newTank);
+    return this.tankRepository.save(newTank);
   }
 
   updateTank(id: number, tank: UpdateTankDto): Promise<UpdateResult> {
